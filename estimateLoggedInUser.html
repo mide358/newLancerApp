@@ -142,7 +142,7 @@
             margin-bottom: 5rem;
         }
 
-        .sidebar {
+        .sidebar{
             position: fixed;
             top: 0;
             left: 0;
@@ -155,9 +155,21 @@
             padding-left: 1rem;
 
         }
-
+        li {
+            
+        }
+       li .dropdown-btn{
+            color:white;
+            background:#091429;
+            border: none;          
+            display:block;
+            list-style: none;
+           
+        }
         
-
+       .dropdownContent{
+            display: none;
+        }
         
 
         .sidebar ul li {
@@ -546,9 +558,26 @@
                             alt="" srcset="" /> Client</a>
                 </li>
                 <li>
-                    <a href=""><img
+                    <a href="" class="dropdown-btn"><img
                             src="https://res.cloudinary.com/undercover/image/upload/v1570695514/lightbulb_tnpl08.svg"
-                            alt="" srcset="" /> Project<i class="fa fa-angle-down"></i></a></a>
+                            alt="" srcset="" ><span> Project</span><i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdownContent">
+                                    <li>
+                                            <a href="#"> Status</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> Overview</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> Collabrators</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> Task</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> Documents</a>
+                                        </li>
+                            </ul>
                 </li>
                 <li>
                     <a href=""><img
@@ -593,6 +622,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 <script>
+    
     const menuBtn = document.getElementById("menuBtn")
     const sidebar = document.getElementById("sidebar")
     let showMenu = false
@@ -611,6 +641,28 @@
     document.querySelector('.create-estimate').addEventListener('click', () => {
             location.href = "invoice-view.html"
         })
+
+       
+ /*project dropdown toggle */
+ var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+
 </script>
 
 </html>
